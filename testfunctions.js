@@ -1,20 +1,12 @@
-
-// const b = 2.4 % 1
-function getDecimal(n){
-//  const numbers = Math.ceil(n/1);
-n =Math.abs(n);
-const intermediateNumber = Math.floor(n/1);
- console.log(n);
- console.log(intermediateNumber);
-  // const newNumber = (+n % 1).toFixed(1)*1;
-  const newNumber = n - intermediateNumber
-  return newNumber;
+function maxTriSum(numbers){
+const newSet = new Set(numbers);
+const newArr = [...newSet].sort((a,b) => b - a);
+let sumResult = 0;
+for(let i = 0; i < 3; i++){
+  sumResult = newArr[i] + sumResult;
 }
-console.log(getDecimal(-1.2));
-// console.log((+10.4 % 1).toFixed(1));
-// console.log(parseInt((13111144411.862311823 / 1)))
-// console.log(Math.round(13111144411.862311823 / 1));
-// console.log(Math.ceil(13111144411.862311823 % 1))
+return sumResult
+}
 
 
 
@@ -24,5 +16,5 @@ console.log(getDecimal(-1.2));
 
 
 
-
+console.log(maxTriSum([-14,-12,-7,-42,-809,-14,-12]));
 // node testfunctions.js

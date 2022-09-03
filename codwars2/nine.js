@@ -1,4 +1,4 @@
-
+// число сделать положительным и десятичную часть получить
 function getDecimal(n){
     n = Math.abs(n);
     const newNumber = (+n % 1).toFixed(1)*1;
@@ -11,3 +11,10 @@ function getDecimal(n){
       const newNumber = n - intermediateNumber
       return newNumber;
 }
+
+function getDecimal(n){
+  return Math.abs(n%1);
+}
+
+const getDecimal = ($) => Math.abs( ( $ % 1).toFixed(10) )
+
