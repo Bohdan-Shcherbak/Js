@@ -8,3 +8,8 @@ function maxTriSum(numbers){
     }
     return sumResult
     }
+// rest берет все аргументы до конца 1,2,3 ...456789
+    const maxTriSum = numbers => {
+        const [a,b,c,...rest] = [...new Set([...numbers])].sort((a,b)=>b-a)
+        return a+b+c
+      }
