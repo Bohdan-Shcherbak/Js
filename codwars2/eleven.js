@@ -20,7 +20,7 @@ function whoseBicycle(diary1, diary2, diary3) {
     return 'I need to buy a bicycle for my '+ bigNumber(number1,number2,number3) +' son.'
   }
 
-
+console.log(whoseBicycle);
 
 
   
@@ -34,3 +34,4 @@ function whoseBicycle(diary1, diary2, diary3) {
       s3+=d3[key];
     return s1>s2&&s1>s3?"I need to buy a bicycle for my first son.":s2>s1&&s2>s3?"I need to buy a bicycle for my second son.":"I need to buy a bicycle for my third son.";
   }
+
