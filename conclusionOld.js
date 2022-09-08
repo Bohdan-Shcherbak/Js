@@ -527,9 +527,108 @@ const getLastStudent = (studentus) => {
   element.addEventListener('click', myListenerCallback(1,2))
 
 
+  // Dom Api
+// querySelectorAll ищет все объекты с классом и берет их в массив
+// без All берет первый попавшийся
+// getElementById ищет по айди
+const myIdButton = document.getElementById('myButton');
+const myClassButton = document.querySelectorAll('.my-button')
 
+// Dom Events
+// innerHTML вставляет в элемент всё что угодно, текст объекты
+// сработает толкьо с querySelector, если querySelectorAll то не сработает, т к массив
+// myClassButton.innerHTML = 'New Click'
 
+// для querySelectorAll создаем цикл и пригоняем все кнопки
+// myClassButton.forEach(button => {
+//     button.innerHTML = 'New Click'
+// })
 
+const handleClick = (event) =>{
+  // classList можно проверить есть ли стиль,добавить или же удалить стили, посмотреть все стили
+  console.log(myIdButton.classList);//cписок классов, которіе имеет кнопка, єто массив
+  if(myIdButton.classList.contains('red')){
+            console.log('yes');
+            myIdButton.classList.remove('red')
+            myIdButton.classList.add('black')
+        }else{
+            console.log('no'); 
+            myIdButton.classList.remove('black')
+            myIdButton.classList.add('red')
+        }
+}
 
+//дулает тоже самое, добавляе стиль и убирает стиль. ТОесть проверяет есть ли стиль, а потом удаляет прошедший и добавляет новый 
+// toggle - переключатель, если включено, выключает, а если выключено, включает
+myIdButton.addEventListener('click', (event) => {
+    myIdButton.classList.toggle('red')
+})
+// *****************************************************************
+// / target говорит где произошло нажатие, тоесть направляет чтоб понимало
+// использует 2 функции и кидает их на таргед, тоесть туда где было нажатие
+const toggleElementColor = (element, color) => {
+    // element.style.color = color
+    element.classList.toggle('red');
+    // лучше не использовать изменение стили, т к имеет высокий вес её не перебить обычными классами
+}
 
+const toggleElementText = (element, text) => {
+    element.innerHTML = text
+}
+
+const handleMouseEnter = (event) => {
+    const element = event.target;
+    // если через color
+    // toggleElementColor(element, 'red')
+    toggleElementColor(element)
+    toggleElementText(element, 'Cool text')
+}
+
+const handleMouseLeave = (event) => {
+  const element = event.target;
+  // toggleElementColor(element, 'black')
+  toggleElementText(element, 'Click')
+}
+// при наводе на текст функция срабатывает
+myIdButton.addEventListener('mouseenter', handleMouseEnter)
+myIdButton.addEventListener('mouseleave', handleMouseLeave)
+// *****************************************************************
+
+// попап
+
+const popup = document.querySelector('.popup');
+const close = document.getElementById('close');
+
+myIdButton.addEventListener('click', () => {
+    popup.classList.toggle('hidden')
+})
+
+popup.addEventListener('click', (event) => {
+    if (event.target.classList.contains('popup')) {
+        popup.classList.toggle('hidden')
+    }
+})
+
+close.addEventListener('click', () => {
+    popup.classList.toggle('hidden')
+})
+// *****************************************************************
+
+// функция куллбека - принимает значение и может исполтзоваться как аргумент в лругом месте 
+const func5 = (a, callback) => {
+  const width = '80px'
+  callback(width);
+  console.log(name);
+}
+
+const func6 = (a,b) => {
+  const age = 10;
+  let width;
+  const getWidth = (widthResult) => {
+      width = widthResult;
+  }
+  func5(1,getWidth)
+  console.log(width);
+}
+// *****************************************************************
 
