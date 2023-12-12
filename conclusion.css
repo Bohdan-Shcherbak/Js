@@ -1,0 +1,46 @@
+body{
+    background-color: red;
+}
+.my-button {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.pop-up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: rgba(20, 20, 20, 0.3)
+}
+
+.pop-up__content{
+    width: 50%;
+    height: 30%;
+    border-radius: 3px;
+    border: 1px solid #000;
+    background: #fff;
+
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.red{
+    color: red;
+}
+
+.black{
+    color: black;
+}
+
+#TwoButton{
+    width: 100px;
+    height: 100px;
+}
